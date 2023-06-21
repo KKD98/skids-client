@@ -1,10 +1,11 @@
 import React from 'react';
 import NavBar from '../SharedComponent/NavBar/NavBar';
+import AllUsers from '../AllUsers/AllUsers';
 
 const HomePage = () => {
     return (
         <div>
-           <p>Helloooooooooooo</p>
+          <AllUsers></AllUsers>
         </div>
     );
 };
