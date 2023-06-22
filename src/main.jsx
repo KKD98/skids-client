@@ -9,6 +9,7 @@ import {
 import HomePage from './components/HomePage/HomePage.jsx';
 import Main from './Main/Main.jsx';
 import AddUser from './components/AddUser/AddUser.jsx';
+import UpdateUser from './components/UpdateUser/UpdateUser.jsx';
 
 const router = createBrowserRouter([
   {
@@ -23,6 +24,10 @@ const router = createBrowserRouter([
       {
         path: "adduser",
         element: <AddUser></AddUser>
+      },
+      {
+        path: "updateuser/:id",
+        element: <UpdateUser></UpdateUser>
       }
     ]
   },
