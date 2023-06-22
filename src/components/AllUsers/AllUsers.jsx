@@ -6,7 +6,7 @@ const AllUsers = () => {
     const [allUsers, setAllUsers] = useState([]);
 
     useEffect(() => {
-        fetch('http://localhost:5000/allusers')
+        fetch('https://skids-server.vercel.app/allusers')
             .then((res) => res.json())
             .then((data) => {
                 setAllUsers(data);
@@ -24,7 +24,7 @@ const AllUsers = () => {
             confirmButtonText: 'Yes, delete it!',
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/user/${id}`, {
+                fetch(`https://skids-server.vercel.app/user/${id}`, {
                     method: 'DELETE',
                 })
                     .then((res) => res.json())
@@ -51,7 +51,7 @@ const AllUsers = () => {
                             <Link
                                 to={`/updateuser/${user._id}`}
                             >
-                                <button className='btn'>Update</button>
+                                <button className='btn'>Edit</button>
                             </Link>
                             <button className='btn' onClick={() => handleDelete(user._id)}>
                                 Delete

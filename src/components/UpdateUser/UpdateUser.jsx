@@ -25,7 +25,7 @@ const UpdateUser = () => {
             phone: data.phone,
         };
 
-        fetch(`http://localhost:5000/user/${userId}`, {
+        fetch(`https://skids-server.vercel.app/user/${userId}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json',
@@ -37,24 +37,25 @@ const UpdateUser = () => {
                 console.log(data);
                 if (data.modifiedCount > 0) {
                     Swal.fire({
-                        icon: 'Success!',
-                        text: 'User Updated Successfully!',
+                        position: 'top-end',
                         icon: 'success',
-                        confirmButtonText: 'Okay',
+                        title: 'User updated successfully',
+                        showConfirmButton: false,
+                        timer: 1500
                     });
                     reset();
                 }
             });
     };
 
-    const phoneRegex = /^\d{10}$/;
+    const phoneRegex =  /^\+\d{1,3}\d{9,10}$/;
     return (
         <div>
             <Helmet>
-                <title>Update User</title>
+                <title>Edit User</title>
             </Helmet>
             <p className="text-4xl text-center font-semibold text-black my-4">
-                Update User
+            Edit User
             </p>
 
             <div className="bg-black rounded-xl w-[80%] md:w-[30%] mx-auto">
@@ -96,7 +97,7 @@ const UpdateUser = () => {
                                     message: 'Invalid phone number format',
                                 },
                             })}
-                            placeholder="Phone"
+                            placeholder="Exp:+123456789012"
                             className="input input-bordered"
                         />
                         {errors.phone && (

@@ -9,7 +9,7 @@ const AddUser = () => {
     const onSubmit = data => {
         console.log(data)
         const saveUser = { name: data.name, email: data.email, phone: data.phone }
-        fetch('http://localhost:5000/adduser', {
+        fetch('https://skids-server.vercel.app/adduser', {
             method: "POST",
             headers: {
                 "content-type": "application/json"
@@ -31,7 +31,7 @@ const AddUser = () => {
             })
     }
 
-    const phoneRegex = /^\d{10}$/;
+    const phoneRegex =  /^\+\d{1,3}\d{9,10}$/;
 
     return (
         <div>
@@ -79,7 +79,7 @@ const AddUser = () => {
                                     message: 'Invalid phone number format',
                                 },
                             })}
-                            placeholder="Phone"
+                            placeholder="Exp:+123456789012"
                             className="input input-bordered"
                         />
                         {errors.phone && (
