@@ -21,7 +21,8 @@ const AllUsers = () => {
                             <p>{user.email}</p>
                             <p>{user.phone}</p>
                             <div className="card-actions justify-end">
-                                <button className="btn">Buy Now</button>
+                                <button className="btn">Update</button>
+                                <button className="btn">Delete</button>
                             </div>
                         </div>
                     </div>
