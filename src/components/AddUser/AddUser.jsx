@@ -1,4 +1,5 @@
 import React from 'react';
+import { Helmet } from 'react-helmet-async';
 import { useForm } from 'react-hook-form';
 import Swal from 'sweetalert2';
 
@@ -7,26 +8,26 @@ const AddUser = () => {
 
     const onSubmit = data => {
         console.log(data)
-        const saveUser = {name: data.name, email: data.email, phone: data.phone}
+        const saveUser = { name: data.name, email: data.email, phone: data.phone }
         fetch('http://localhost:5000/adduser', {
             method: "POST",
             headers: {
-              "content-type": "application/json"
+                "content-type": "application/json"
             },
             body: JSON.stringify(saveUser)
-          })
+        })
             .then(res => res.json())
             .then(data => {
-              if (data.insertedId) {
-                reset();
-                Swal.fire({
-                    position: 'top-end',
-                    icon: 'success',
-                    title: 'User added successfully',
-                    showConfirmButton: false,
-                    timer: 1500
-                  })
-              }
+                if (data.insertedId) {
+                    reset();
+                    Swal.fire({
+                        position: 'top-end',
+                        icon: 'success',
+                        title: 'User added successfully',
+                        showConfirmButton: false,
+                        timer: 1500
+                    })
+                }
             })
     }
 
@@ -34,6 +35,9 @@ const AddUser = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Add User</title>
+            </Helmet>
             <p className="text-4xl text-center font-semibold text-black my-4">Add User</p>
 
             <div className="bg-black rounded-xl w-[80%] md:w-[30%] mx-auto">

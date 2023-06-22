@@ -10,31 +10,34 @@ import HomePage from './components/HomePage/HomePage.jsx';
 import Main from './Main/Main.jsx';
 import AddUser from './components/AddUser/AddUser.jsx';
 import UpdateUser from './components/UpdateUser/UpdateUser.jsx';
+import { HelmetProvider } from 'react-helmet-async';
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Main></Main>,
-    children: 
-    [
-      {
-        path: "/",
-        element: <HomePage></HomePage>
-      },
-      {
-        path: "adduser",
-        element: <AddUser></AddUser>
-      },
-      {
-        path: "updateuser/:id",
-        element: <UpdateUser></UpdateUser>
-      }
-    ]
+    children:
+      [
+        {
+          path: "/",
+          element: <HomePage></HomePage>
+        },
+        {
+          path: "adduser",
+          element: <AddUser></AddUser>
+        },
+        {
+          path: "updateuser/:id",
+          element: <UpdateUser></UpdateUser>
+        }
+      ]
   },
 ]);
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <HelmetProvider>
+      <RouterProvider router={router} />
+    </HelmetProvider>
   </React.StrictMode>,
 )
